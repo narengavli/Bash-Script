@@ -1,0 +1,14 @@
+# 01) run cpp file using cpp command
+#runcpp function
+runcpp(){
+        red=`tput setaf 1`
+        if [ -z "$1" ]
+        then
+                echo "${red}missing source file name${reset}"
+        else
+                opFile=$(basename $1 .cpp);
+                g++ -o $opFile $1 && ./$opFile;
+        fi
+}
+#calling runcpp function
+alias cpp='runcpp'
